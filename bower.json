@@ -1,0 +1,32 @@
+{
+  "name": "elearning",
+  "description": "Learn online",
+  "main": "web.js",
+  "authors": [
+    "Ramesh Kumar"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "elearning",
+    "meanjs",
+    "nodejs",
+    "expressjs",
+    "angularjs"
+  ],
+  "homepage": "https://github.com/rameshkr92/elearning",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

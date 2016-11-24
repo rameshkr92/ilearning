@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+
+    <title>Starter Node and Angular</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/MainCtrl.js"></script>
+    <script src="js/controllers/CmsCtrl.js"></script>
+    <script src="js/controllers/authController.js"></script>
+    <script src="js/appRoutes.js"></script>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Application name</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-right navbar-text">Signed in as {{current_user}}</p></li>
+                <li><p class="navbar-right navbar-text" ng-hide="authenticated">
+                    <a href="/signin">Login</a> or <a href="/signup">Register</a>
+                </p></li>
+                <li><p class="navbar-right navbar-text" ng-show="authenticated">
+                    <a href="/" ng-click="signout()">Logout</a>
+                </p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    <div ng-view></div>
+</div>
+<hr />
+<footer>
+    <p>Learning Application</p>
+</footer>
+</body>
+</html>
