@@ -23,13 +23,13 @@
     "connect-flash": "^0.1.1",
     "connect-mongo": "^1.3.2",
     "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "method-override": "^2.3.7",
     "mongoose": "^4.6.8",
     "morgan": "^1.7.0",
     "nodemailer": "^2.6.4",
-    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
@@ -41,5 +41,8 @@
     "serve-favicon": "^2.3.2",
     "socket.io": "^1.6.0",
     "validator": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

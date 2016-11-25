@@ -1,13 +1,47 @@
 "use strict";
 
+var express = require('express');
+var router = express.Router();
+
+module.exports = function(passport){
+    //sends successful login state back to view(angular)
+    router.get('/success',function(req,res){
+        res.send({state: 'success', user: req.user ? req.user: null});
+    });
+    //send failure login state back to view(angular)
+    router.get('/failure',function(req,res){
+        res.send({state: 'failure',user:null,message:"Invalid username or password"});
+    });
+    //login requeset
+    router.post('/login',passport.authenticate('login',{
+        successRedirect: '/auth/success',
+        failureRedirect: '/auth/failure'
+    }));
+
+    //signup request
+    router.post('/signup', passport.authenticate('signup', {
+        successRedirect: '/auth/success',
+        failureRedirect: '/auth/failure'
+    }));
+
+    //logout request
+    router.get('/signout', function(req, res) {
+        req.session.user = null;
+        req.logout();
+        res.redirect('/');
+    });
+
+    return router;
+}
+
+/*
 module.exports = function(app) {
 
     var passport = require('passport');
     var mongoose = require('mongoose');
     var LocalStrategy = require('passport-local').Strategy;
 
-
-    var user = require('./../models/userModel.js');
+    var user = require('./../models/user.js');
     var User = mongoose.model('User');
 
     var session = require('express-session');
@@ -23,9 +57,7 @@ module.exports = function(app) {
     }));
 
     app.use(passport.initialize());
-
     app.use(passport.session());
-
 
     passport.use(new LocalStrategy(
         function (username, password, done) {
@@ -73,7 +105,6 @@ module.exports = function(app) {
     });
 
     app.post('/auth/signup',function(req,res){
-
         var u =  new User();
         u.username = req.body.email;
         u.password = req.body.password;
@@ -97,4 +128,4 @@ module.exports = function(app) {
     });
 
 };
- 
+ */

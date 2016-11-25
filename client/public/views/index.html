@@ -2,9 +2,9 @@
 <html lang="en" data-ng-app="sampleApp">
 <head>
     <meta charset="UTF-8">
-    <base href="/">
+    <!--<base href="/">-->
 
-    <title>Starter Node and Angular</title>
+    <title>Starter Application</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
@@ -34,17 +34,17 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/about">About</a></li>
+                <li><a href="#/contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><p class="navbar-right navbar-text">Signed in as {{current_user}}</p></li>
                 <li><p class="navbar-right navbar-text" ng-hide="authenticated">
-                    <a href="/signin">Login</a> or <a href="/signup">Register</a>
+                    <a href="#/signin"> Login</a> or <a href="#/signup"> Register</a>
                 </p></li>
                 <li><p class="navbar-right navbar-text" ng-show="authenticated">
-                    <a href="/" ng-click="signout()">Logout</a>
+                    <a href="#/" ng-click="signout()">Logout</a>
                 </p></li>
             </ul>
         </div>

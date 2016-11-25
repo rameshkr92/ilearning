@@ -1,5 +1,6 @@
 "use strict";
 // serverconfig/db.js
-module.exports = {
-    url : 'mongodb://localhost/elearning'
-}
+var mongoose = require('mongoose');
+var connection = mongoose.connect('mongodb://localhost/elearning');
+
+module.exports = connection;

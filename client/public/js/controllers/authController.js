@@ -3,7 +3,7 @@
 sampleApp.controller('authController', function($scope,$http,$location) {
     $scope.tagline = 'To the moon and back!';
     $scope.user  = {username:'',password:''};
-    $scope.alert = '';
+    $scope.error_message = '';
 
     $scope.login = function(user){
         $http.post('/auth/login', user).
@@ -12,7 +12,7 @@ sampleApp.controller('authController', function($scope,$http,$location) {
             $location.path('/user');
         }).
         error(function() {
-            $scope.alert = 'Login failed'
+            $scope.error_message = 'Login failed'
         });
 
     };
@@ -20,10 +20,18 @@ sampleApp.controller('authController', function($scope,$http,$location) {
     $scope.signup = function(user){
         $http.post('/auth/signup', user).
         success(function(data) {
-            $scope.alert = data.alert;
+            // $scope.alert = data.alert;
+            if(data.state == 'success'){
+                $rootScope.authenticated = true;
+                $rootScope.current_user = data.user.username;
+                $location.path('/');
+            }
+            else{
+                $scope.error_message = data.message;
+            }
         }).
         error(function() {
-            $scope.alert = 'Registration failed'
+            $scope.error_message = 'Registration failed'
         });
 
     };
@@ -39,14 +47,13 @@ sampleApp.controller('authController', function($scope,$http,$location) {
     }
 
     $scope.logout = function(){
-        $http.get('/auth/logout')
+        $http.get('/auth/signout')
             .success(function() {
                 $scope.loggeduser = {};
                 $location.path('/signin');
-
             })
             .error(function() {
-                $scope.alert = 'Logout failed'
+                $scope.error_message = 'Logout failed'
             });
     };
 });
