@@ -1,6 +1,6 @@
 "use strict";
-// serverconfig/db.js
+// server/config/db.js
 var mongoose = require('mongoose');
-var connection = mongoose.connect('mongodb://localhost/elearning');
+var connection = mongoose.connect('mongodb://localhost/ilearning');
 
 module.exports = connection;

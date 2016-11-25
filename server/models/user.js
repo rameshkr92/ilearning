@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-    first_name: String,
-    last_name: String,
+    firstname: String,
+    lastname: String,
     username: String,
     password: String,
     email: String,
@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
 mongoose.model('User', userSchema);
 var User = mongoose.model('User');
 exports.findByUsername = function(userName, callback){
-    User.findOne({ user_name: userName}, function(err, user){
+    User.findOne({ username: userName}, function(err, user){
         if(err){
             return callback(err);
         }
